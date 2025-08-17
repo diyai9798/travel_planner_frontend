@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Travel Itinerary Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="container">
+                <h1 class="app-title">
+                    <i class="fas fa-map-marked-alt"></i>
+                    AI Travel Itinerary Generator
+                </h1>
+                <p class="app-subtitle">Plan your perfect trip with AI-powered recommendations</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Form Section -->
+                <section id="form-section" class="form-section">
+                    <div class="form-container card">
+                        <div class="card__body">
+                            <h2 class="section-title">Plan Your Journey</h2>
+                            <form id="itinerary-form" class="itinerary-form">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="current-location" class="form-label">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            Current Location
+                                        </label>
+                                        <input 
+                                            type="text" 
+                                            id="current-location" 
+                                            name="current_location"
+                                            class="form-control" 
+                                            placeholder="e.g., Delhi, India"
+                                            required
+                                        >
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="destination" class="form-label">
+                                            <i class="fas fa-map-pin"></i>
+                                            Destination
+                                        </label>
+                                        <input 
+                                            type="text" 
+                                            id="destination" 
+                                            name="destination"
+                                            class="form-control" 
+                                            placeholder="e.g., Meghalaya (Shillong), India"
+                                            required
+                                        >
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="start-date" class="form-label">
+                                            <i class="fas fa-calendar-alt"></i>
+                                            Start Date
+                                        </label>
+                                        <input 
+                                            type="date" 
+                                            id="start-date" 
+                                            name="start_date"
+                                            class="form-control" 
+                                            required
+                                        >
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="end-date" class="form-label">
+                                            <i class="fas fa-calendar-check"></i>
+                                            End Date
+                                        </label>
+                                        <input 
+                                            type="date" 
+                                            id="end-date" 
+                                            name="end_date"
+                                            class="form-control" 
+                                            required
+                                        >
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="duration" class="form-label">
+                                            <i class="fas fa-clock"></i>
+                                            Duration
+                                        </label>
+                                        <input 
+                                            type="text" 
+                                            id="duration" 
+                                            name="duration"
+                                            class="form-control" 
+                                            placeholder="e.g., 7 days"
+                                            readonly
+                                        >
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="travelers" class="form-label">
+                                            <i class="fas fa-users"></i>
+                                            Number of Travelers
+                                        </label>
+                                        <input 
+                                            type="number" 
+                                            id="travelers" 
+                                            name="travelers"
+                                            class="form-control" 
+                                            min="1" 
+                                            max="10"
+                                            value="2"
+                                            required
+                                        >
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <i class="fas fa-heart"></i>
+                                        Interests
+                                    </label>
+                                    <div class="interests-grid">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="culture">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="interest-icon">🏛️</span>
+                                            Culture
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="nature">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="interest-icon">🌿</span>
+                                            Nature
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="art">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="interest-icon">🎨</span>
+                                            Art
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="food">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="interest-icon">🍽️</span>
+                                            Food
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="adventure">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="interest-icon">🏔️</span>
+                                            Adventure
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="shopping">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="interest-icon">🛍️</span>
+                                            Shopping
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="history">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="interest-icon">🏺</span>
+                                            History
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="interests" value="nightlife">
+                                            <span class="checkbox-custom"></span>
+                                            <span class="interest-icon">🌃</span>
+                                            Nightlife
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">
+                                        <i class="fas fa-wallet"></i>
+                                        Budget
+                                    </label>
+                                    <div class="budget-options">
+                                        <label class="radio-label">
+                                            <input type="radio" name="budget" value="budget" required>
+                                            <span class="radio-custom"></span>
+                                            <div class="budget-option">
+                                                <span class="budget-title">Budget</span>
+                                                <span class="budget-desc">Economical travel</span>
+                                            </div>
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="budget" value="mid-range" required>
+                                            <span class="radio-custom"></span>
+                                            <div class="budget-option">
+                                                <span class="budget-title">Mid-range</span>
+                                                <span class="budget-desc">Balanced comfort</span>
+                                            </div>
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="budget" value="luxury" required>
+                                            <span class="radio-custom"></span>
+                                            <div class="budget-option">
+                                                <span class="budget-title">Luxury</span>
+                                                <span class="budget-desc">Premium experience</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-magic"></i>
+                                    Generate Itinerary
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Loading Section -->
+                <section id="loading-section" class="loading-section" style="display: none;">
+                    <div class="loading-container card">
+                        <div class="card__body text-center">
+                            <div class="loading-spinner"></div>
+                            <h2 class="loading-title">Creating Your Perfect Itinerary</h2>
+                            <p class="loading-text">Our AI is crafting personalized recommendations for your trip...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Error Section -->
+                <section id="error-section" class="error-section" style="display: none;">
+                    <div class="error-container card">
+                        <div class="card__body text-center">
+                            <div class="error-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <h2 class="error-title">Oops! Something went wrong</h2>
+                            <p id="error-message" class="error-text">
+                                We couldn't generate your itinerary. Please try again.
+                            </p>
+                            <button id="retry-btn" class="btn btn-primary">
+                                <i class="fas fa-redo"></i>
+                                Try Again
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Results Section -->
+                <section id="results-section" class="results-section" style="display: none;">
+                    <div class="results-container">
+                        <!-- Trip Summary -->
+                        <div class="trip-summary card">
+                            <div class="card__body">
+                                <h2 class="trip-title">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                    <span id="trip-destination">Your Trip</span>
+                                </h2>
+                                <div class="trip-details">
+                                    <div class="trip-detail">
+                                        <span class="detail-label">Duration:</span>
+                                        <span id="trip-duration">-</span>
+                                    </div>
+                                    <div class="trip-detail">
+                                        <span class="detail-label">Total Budget:</span>
+                                        <span id="trip-budget" class="budget-amount">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Daily Itinerary -->
+                        <div id="daily-itinerary" class="daily-itinerary">
+                            <!-- Dynamic content will be inserted here -->
+                        </div>
+
+                        <!-- Budget Breakdown -->
+                        <div class="budget-breakdown card">
+                            <div class="card__body">
+                                <h3 class="breakdown-title">
+                                    <i class="fas fa-chart-pie"></i>
+                                    Budget Breakdown
+                                </h3>
+                                <div id="budget-categories" class="budget-categories">
+                                    <!-- Dynamic content will be inserted here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="result-actions">
+                            <button id="new-itinerary-btn" class="btn btn-secondary">
+                                <i class="fas fa-plus"></i>
+                                Generate New Itinerary
+                            </button>
+                            <button class="btn btn-primary" onclick="window.print()">
+                                <i class="fas fa-print"></i>
+                                Print Itinerary
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
