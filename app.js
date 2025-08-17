@@ -168,7 +168,7 @@ function submitItineraryRequest(data) {
     showSection('loading');
 
     // Make API request
-    fetch('http://localhost:8000/api/generate-itinerary', {
+    fetch('https://travelplannerbacken-production.up.railway.app/api/generate-itinerary', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
